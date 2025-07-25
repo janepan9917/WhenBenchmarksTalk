@@ -1,0 +1,45 @@
+feedback_type: iter_refinement
+feedback_setting: nl_feedback
+
+# System prompt for code completion
+asst_code_sys: |
+  You are a coding assistant who is writing code to fill in some incomplete classes. 
+  
+  You will be provided with the skeleton of the class with function names and docstrings. You may also be provided with some functions already completed.
+
+  Your goal is to complete the code according to the docstrings. Do not add anything else to the code, including natural language that is not part of the code or comments. Your generation should be ready to run without needing any modifications. 
+
+
+# Feedback-less prompt for initial code generation
+asst_initial_code_query: |
+  Here is the skeleton:
+  
+  {underspec_question}
+  
+  Enclose your solution in a markdown block beginning with ```python. When you are ready to submit your response, please end the markdown block with ``` on a new line.
+
+
+# Prompt with feedback for code generation
+asst_code_query: |
+  Here is the skeleton:
+  
+  {underspec_question}
+
+  Here is your last version of the skeleton:
+
+  ```python
+  {prev_solution}
+  ```
+  
+  The user provided the following feedback on the code:
+
+  {user_response}
+
+  You can choose to use this response, or you can choose to ignore it. Only incorporate the information that you think is relevant and helpful into the code. 
+
+  Enclose your updated solution in a markdown block beginning with ```python. When you are ready to submit your response, please end the markdown block with ``` on a new line.
+
+# Prefill for the code assistant
+asst_code_prefill: |
+  ```python
+  {partial_solution}

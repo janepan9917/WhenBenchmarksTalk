@@ -1,0 +1,26 @@
+
+# Interaction parameters
+interaction:
+  n_samples: 4
+  stopping_condition: "never_stop" 
+
+# Dataset params
+dataset: 
+  input_transformation_type: "func_summary"
+  solution_info_type: "full_solution"
+  shuffle: True
+
+# Asst model uses user answers to write code
+asst_model:
+  include_history: False
+  model_name: "Qwen/Qwen2.5-Coder-7b-Instruct"
+  api_key: "HUGGINGFACE_API_KEY"
+  prompt_fn: "prompts/asst/class_eval.yaml"
+  n_samples: 2
+  cache_dir: '/data/user_data/rshar/hf'
+  generation_config:
+    do_sample: True
+    temperature: 0.9
+  stopping_condition:
+    n_lines: 50
+    n_tokens: 1000

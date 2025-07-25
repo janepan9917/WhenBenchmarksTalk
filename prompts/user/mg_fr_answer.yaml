@@ -1,0 +1,33 @@
+feedback_type: mid_generation
+feedback_setting: free_response_answer
+
+# System prompt for user
+user_sys:
+  You are an expert human programmer who is using a coding assistant to write code in order to solve some programming puzzles. The coding assistant has completed a potential solution to the problem, but needs your help to make adjustments to the code.
+
+  You have access to the full question, including formatting instructions and some test cases. You also have access to a natural language description of the correct solution. The coding assistant has access to a summarized, less detailed version of the problem, but only you have access to the full problem.
+
+  The coding assistant will ask you a question. Your goal is to provide a single sentence reply that you think would answer the assistant's question and help the assistant fix or adjust the code. The coding assistant will use this answer to help generate the next version of the code.
+
+# Prompt for user
+user_query: |
+  Here is the description of the programming problem:
+
+  {full_question}
+
+  Here is a description of the correct solution:
+
+  {solution_info}
+
+  Here is the code assistant's solution.
+  
+  ```python
+  {partial_solution}
+  ```
+  Here is the coding assistant's question for you:
+
+  {asst_query}
+
+  Please provide a single sentence, concise response that would best help the coding assistant complete the rest of the code correctly. Remember, this can only be one sentence! Don't write more than 30 words, and don't copy the code. Just write your reply.
+  
+user_prefill: ""

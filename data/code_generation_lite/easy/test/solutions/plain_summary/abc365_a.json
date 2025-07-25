@@ -1,0 +1,1 @@
+{"qid": "abc365_a", "split": "test", "solutions": "# YOUR CODE HERE\nyear = int(input())\n\nif year % 400 == 0:\n    days = 366\nelif year % 100 == 0:\n    days = 365\nelif year % 4 == 0:\n    days = 366\nelse:\n    days = 365\n\nprint(days)", "starter": ""}

@@ -1,0 +1,165 @@
+feedback_type: 
+feedback_setting: 
+
+# System prompt for code completion
+asst_code_sys: |
+  You are a coding assistant who is writing code in order to solve some programming puzzles. 
+  
+  You will be provided with a summary of the problem. You may also be provided with some starter code that you need to complete.
+
+  Your goal is to complete the code so as to solve the problem. Do not add anything else to the code, including natural language that is not part of the code or comments. Your generation should be ready to run without needing any modifications. Keep in mind that for this dataset, the results should be printed to stdout, so don't just write a function without calling it or printing something to stdout.
+
+
+# Feedback-less prompt for initial code generation
+asst_initial_code_query: |
+  Here is the programming problem description:
+  
+  {underspec_question}
+  
+  Enclose your solution in a markdown block beginning with ```python. When you are ready to submit your response, please end the markdown block with ``` on a new line.
+
+
+# Prompt with feedback for code generation
+asst_code_query: |
+  Here is the programming problem description:
+  
+  {underspec_question}
+  
+  Previously, you asked the following question to the user:
+
+  {asst_query}
+
+  The user answered with the following response:
+
+  {user_response}
+
+  You can choose to use this response, or you can choose to ignore it. Only incorporate the information that you think is relevant and helpful into the code. 
+
+  Enclose your updated solution in a markdown block beginning with ```python. When you are ready to submit your response, please end the markdown block with ``` on a new line.
+
+
+# Prompt for the student to complete the code (gets appended to the initial code prompt)
+asst_code_w_iter_refinement_free_response_answer_query: |
+  Here is the programming problem description:
+  
+  {underspec_question}
+
+  Here is your last version of the code:
+
+  {prev_solution}
+  
+  Previously, you asked the following question to the user:
+
+  {asst_query}
+
+  The user answered with the following response:
+
+  {user_response}
+
+  You can choose to use this response, or you can choose to ignore it. Only incorporate the information that you think is relevant and helpful into the code. 
+
+  Enclose your updated solution in a markdown block beginning with ```python. When you are ready to submit your response, please end the markdown block with ``` on a new line.
+
+
+
+# Prompt for the student to complete the code (gets appended to the initial code prompt)
+asst_code_w_iter_refinement_nl_feedback_query: |
+  Here is the programming problem description:
+  
+  {underspec_question}
+
+  Here is your last version of the code:
+
+  ```python
+  {prev_solution}
+  ```
+  
+  The user provided the following feedback on the code:
+
+  {user_response}
+
+  You can choose to use this response, or you can choose to ignore it. Only incorporate the information that you think is relevant and helpful into the code. 
+
+  Enclose your updated solution in a markdown block beginning with ```python. When you are ready to submit your response, please end the markdown block with ``` on a new line.
+
+# Prompt for the student to complete the code (gets appended to the initial code prompt)
+asst_code_w_iter_refinement_no_feedback_query: |
+  Here is the programming problem description:
+  
+  {underspec_question}
+
+  Here is your last version of the code:
+
+  ```python
+  {prev_solution}
+  ```
+
+  Enclose your updated solution in a markdown block beginning with ```python. When you are ready to submit your response, please end the markdown block with ``` on a new line.
+
+
+
+# Prefill for the code assistant
+asst_code_prefill: |
+  ```python
+  {partial_solution}
+
+
+
+# MID GENERATION QUESTION
+#-----------------------------------------------------#
+
+
+# System prompt for user query
+asst_mid_generation_question_sys: |
+  You are a coding assistant who is writing code in order to solve some programming puzzles. However, you need to ask the user for some information in order to complete the code.
+  
+  You will be provided with a summary of the problem. You may also be provided with some starter code that you are trying to complete.
+
+  Your goal is to ask the user a single question that will help you complete the code.
+
+
+# Prompt for the student to complete the code (gets appended to the initial code prompt)
+asst_mid_generation_question_query: |
+  Here is the programming problem description:m
+  
+  {underspec_question}
+
+  Here is the starter code that you are trying to complete:
+
+  ```python
+  {partial_solution}
+  ```
+
+  Please ask a single question that would best help you complete the next part of the code. Your question should be a single sentence. 
+
+asst_mid_generation_question_prefill: ""
+
+
+# ITER REFINEMENT QUESTION
+#-----------------------------------------------------#
+
+
+# System prompt for user query
+asst_iter_refinement_question_sys: |
+  You are a coding assistant who is writing code in order to solve some programming puzzles. However, you need to ask the user for some information in order to complete the code.
+  
+  You will be provided with a summary of the problem. You may also be provided with some starter code that you are trying to complete.
+
+  Your goal is to ask the user a single question that will help you complete the code.
+
+
+# Prompt for the student to complete the code (gets appended to the initial code prompt)
+asst_iter_refinement_question_query: |
+  Here is the programming problem description:m
+  
+  {underspec_question}
+
+  Here is the starter code that you are trying to complete:
+
+  ```python
+  {full_solution}
+  ```
+
+  Please ask a single question that would best help you complete the next part of the code. Your question should be a single sentence. 
+
+asst_iter_refinement_question_prefill: ""

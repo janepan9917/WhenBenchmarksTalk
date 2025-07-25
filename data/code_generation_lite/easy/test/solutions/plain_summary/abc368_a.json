@@ -1,0 +1,1 @@
+{"qid": "abc368_a", "split": "test", "solutions": "# YOUR CODE HERE\nn, k = map(int, input().split())\na = list(map(int, input().split()))\n\n# Take K cards from the bottom and place them on top\nb = a[-k:] + a[:-k]\n\n# Print the integers on the cards from top to bottom\nprint(*b)", "starter": ""}

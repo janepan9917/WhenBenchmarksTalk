@@ -1,0 +1,1 @@
+{"qid": "abc373_c", "split": "test", "solutions": "# YOUR CODE HERE\n\nN = int(input())\nA = list(map(int, input().split()))\nB = list(map(int, input().split()))\n\nmax_sum = max(A) + max(B)\n\nprint(max_sum)", "starter": ""}

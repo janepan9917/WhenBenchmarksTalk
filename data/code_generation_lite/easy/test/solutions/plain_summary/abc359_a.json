@@ -1,0 +1,1 @@
+{"qid": "abc359_a", "split": "test", "solutions": "# YOUR CODE HERE\nN = int(input())\ncount = 0\nfor _ in range(N):\n    name = input()\n    if name == 'Takahashi':\n        count += 1\nprint(count)", "starter": ""}

@@ -1,0 +1,1 @@
+{"qid": "abc357_a", "split": "test", "solutions": "# YOUR CODE HERE\nn, m = map(int, input().split())\nhands = list(map(int, input().split()))\n\nremaining_disinfectant = m\ncount = 0\n\nfor i in range(n):\n    if remaining_disinfectant >= hands[i]:\n        remaining_disinfectant -= hands[i]\n        count += 1\n    else:\n        break\n\nprint(count)", "starter": ""}

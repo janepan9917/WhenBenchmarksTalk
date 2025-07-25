@@ -1,0 +1,17 @@
+# Dataset params
+dataset: 
+  name: code_generation_lite
+  input_transformation_type: "plain_summary"
+  solution_info_type: 'vanilla'
+  difficulty: "hard"
+  split: "test"
+  shuffle: false
+
+# Oracle produces summaries
+oracle_model:
+  model_name: "claude-3.5-sonnet"
+  api_key: CLAUDE_KEY
+  prompt_fn: "prompts/oracle/oracle_plain_summary.yaml"
+
+
+

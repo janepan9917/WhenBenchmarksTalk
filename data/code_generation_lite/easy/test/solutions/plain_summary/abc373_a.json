@@ -1,0 +1,1 @@
+{"qid": "abc373_a", "split": "test", "solutions": "# YOUR CODE HERE\ns = [input() for _ in range(12)]\nans = 0\nfor i in range(12):\n    if len(s[i]) == i + 1:\n        ans += 1\nprint(ans)", "starter": ""}

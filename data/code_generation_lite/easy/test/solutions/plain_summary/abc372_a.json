@@ -1,0 +1,1 @@
+{"qid": "abc372_a", "split": "test", "solutions": "# YOUR CODE HERE\ns = input()\nans = s.replace('.', '')\nprint(ans)", "starter": ""}

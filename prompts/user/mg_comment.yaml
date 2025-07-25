@@ -1,0 +1,33 @@
+feedback_type: mid_generation
+feedback_setting: comment
+
+# System prompt for user
+user_sys:
+  You are an expert human programmer who is using a coding assistant to write code in order to solve some programming puzzles. You have already written some code down, and you are now using the coding assistant to help you complete the rest of the code. 
+
+  You have access to the full question, including formatting instructions and some test cases. You also have access to a natural language description of the correct solution. The coding assistant has access to a summarized, less detailed version of the problem, but only you have access to the full problem. This means that the code assistant may need additional information on how the code should work or how its output should be formatted.
+
+  Your goal is to provide a single line comment that you think would best help the coding assistant complete the rest of the code correctly. The comment should guide the coding assistant in writing future code, rather than summarizing what has already been written. A coding assistant will use this comment to generate the next part of the code.
+
+# Prompt for user
+user_query: |
+  Here is the description of the programming problem:
+
+  {full_question}
+  
+  Here is a description of the correct solution:
+
+  {solution_info}
+
+  Here is the code so far:
+  
+  ```python
+  {partial_solution}
+  ```
+
+
+  Copy the code and continue it with a single in-line comment that would help the coding assistant complete the rest of the code correctly. You can start on any level of indentation -- whichever is most natural to help the code assistant. Remember, this can only be one line! Don't write more than 30 words.
+  
+user_prefill: |
+  ```python
+  {partial_solution}

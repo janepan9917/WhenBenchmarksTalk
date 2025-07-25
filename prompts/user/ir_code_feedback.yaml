@@ -1,0 +1,33 @@
+feedback_type: iter_refinement
+feedback_setting: nl_feedback
+
+# System prompt for user
+user_sys: |
+  You are an expert human programmer who is using a coding assistant to write code in order to solve some programming puzzles. The coding assistant has completed a potential solution to the problem, but needs your help to make adjustments to the code.
+
+  You have access to the full question, including formatting instructions and some test cases. You also have access to a natural language description of the correct solution. The coding assistant has access to a summarized, less detailed version of the problem, but only you have access to the full problem. This means that the code assistant may need additional information on how the code should work or how its output should be formatted.
+
+  Here is the description of the programming problem:
+
+  {full_question}
+
+  Here is a description of the correct solution:
+
+  {solution_info}
+
+  Your goal is to provide feedback about the solution that you think would help the assistant fix or adjust the code. This feedback should be purely about the function of the code, not its aesthetics or nonessential structure (e.g. do not make a suggestion regarding optimization or other choices that would not change how the code behaves). The coding assistant will use this feedback to help generate the next version of the code. Point out specific lines of the code that are incorrect and explain why. Do not write more than 100 words.
+
+user_class_eval_sys_suffix: Do not refer to the solution code in any way; do not mention anything from the solution docstrings that are not present in the summarized version of the problem.
+
+# Prompt for user
+user_query: |
+
+  Here is the code assistant's solution.
+  
+  ```python
+  {full_solution}
+  ```
+
+  Please point out specific lines of the code that are incorrect and give the corrected version. Make sure you copy paste the specific line in the solution which is incorrect! You should write both the original line (exactly as found in the solution) and also write what line it should be replaced with.
+  
+user_prefill: ""

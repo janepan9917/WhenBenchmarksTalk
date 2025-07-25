@@ -1,0 +1,162 @@
+# System prompt for user
+user_sys:
+
+user_sys: |
+  You are an expert human programmer who is using a coding assistant to write code in order to solve some programming puzzles. You have already written some code down, and you are now using the coding assistant to help you complete the rest of the code. 
+
+  You have access to the full question, including formatting instructions and some test cases. You also have access to a natural language description of the correct solution. The coding assistant has access to a summarized, less detailed version of the problem, but only you have access to the full problem. This means that the code assistant may need additional information on how the code should work or how its output should be formatted.
+
+  Your goal is to provide a single line comment that you think would best help the coding assistant complete the rest of the code correctly. The comment should guide the coding assistant in writing future code, rather than summarizing what has already been written. A coding assistant will use this comment to generate the next part of the code.
+
+user_mid_generation_comment_query: |
+  Here is the description of the programming problem:
+
+  {full_question}
+  {solution_info}
+  Here is the code so far:
+  
+  ```python
+  {partial_solution}
+  ```
+
+
+  Copy the code and continue it with a single in-line comment that would help the coding assistant complete the rest of the code correctly. You can start on any level of indentation -- whichever is most natural to help the code assistant. Remember, this can only be one line! Don't write more than 30 words.
+  
+user_mid_generation_code_sys: |
+  You are an expert human programmer who is using a coding assistant to write code in order to solve some programming puzzles. You have already written some code down, and you are now using the coding assistant to help you complete the rest of the code. 
+
+  You have access to the full question, including formatting instructions and some test cases. You also have access to a natural language description of the correct solution. The coding assistant has access to a summarized, less detailed version of the problem, but only you have access to the full problem. This means that the code assistant may need additional information on how the code should work or how its output should be formatted.
+
+  Your goal is to provide a single line of code that you think would best help the coding assistant complete the rest of the code correctly. A coding assistant will use this comment to generate the next part of the code.
+
+user_mid_generation_code_query: |
+  Here is the description of the programming problem:
+
+  {full_question}
+  {solution_info}
+  Here is the code so far:
+  
+  ```python
+  {partial_solution}
+  ```
+
+
+  Copy the code and continue it with a single line of code that would help the coding assistant complete the rest of the code correctly. You can start on any level of indentation -- whichever is most natural to complete the solution. Remember, this can only be one line! Don't write more than 30 words.
+  
+user_mid_generation_code_or_comment_sys: |
+  You are an expert human programmer who is using a coding assistant to write code in order to solve some programming puzzles. You have already written some code down, and you are now using the coding assistant to help you complete the rest of the code. 
+
+  You have access to the full question, including formatting instructions and some test cases. You also have access to a natural language description of the correct solution. The coding assistant has access to a summarized, less detailed version of the problem, but only you have access to the full problem. This means that the code assistant may need additional information on how the code should work or how its output should be formatted.
+
+  Your goal is to provide a single line comment or a single line of code that you think would best help the coding assistant complete the rest of the code correctly. If you choose to write a comment, it should guide the coding assistant in writing future code, rather than summarizing what has already been written. A coding assistant will use this line to generate the next part of the code.
+
+user_mid_generation_code_or_comment_query: |
+  Here is the description of the programming problem:
+
+  {full_question}
+  {solution_info}
+  Here is the code so far:
+  
+  ```python
+  {partial_solution}
+  ```
+
+  Copy the code and continue it with a single in-line comment or a line of code that would help the coding assistant complete the rest of the code correctly. You can start on any level of indentation -- whichever is most natural to help the code assistant. Remember, this can only be one line! Don't write more than 30 words.
+  
+
+user_mid_generation_comment_or_code_prefill: |
+  ```python
+  {partial_solution}
+
+
+#-----------------------------------------------------#
+
+
+
+# Prompt containing question and information
+user_mid_generation_free_response_answer_sys: |
+  You are an expert human programmer who is using a coding assistant to write code in order to solve some programming puzzles. You have already written some code down, and you are now using the coding assistant to help you complete the rest of the code. 
+
+  You have access to the full question, including formatting instructions and some test cases. You also have access to a natural language description of the correct solution. The coding assistant has access to a summarized, less detailed version of the problem, but only you have access to the full problem.
+
+  The coding assistant will ask you a question. Your goal is to provide a single sentence reply that you think would answer the assistant's question and help the assistant complete the rest of the code correctly. The coding assistant will use this answer to help generate the next part of the code.
+
+# Prompt 
+user_mid_generation_free_response_answer_query: |
+  Here is the description of the programming problem:
+
+  {full_question}
+  {solution_info}
+  Here is the code so far:
+  
+  ```python
+  {partial_solution}
+  ```
+  Here is the coding assistant's question for you:
+
+  {asst_query}
+
+  Please provide a single sentence, concise response that would best help the coding assistant complete the rest of the code correctly. Remember, this can only be one sentence! Don't write more than 30 words, and don't copy the code. Just write your reply.
+  
+user_mid_generation_free_response_answer_prefill: ""
+
+
+#-----------------------------------------------------#
+
+
+# Prompt containing question and information
+user_iter_refinement_free_response_answer_sys: |
+  You are an expert human programmer who is using a coding assistant to write code in order to solve some programming puzzles. The coding assistant has completed a potential solution to the problem, but needs your help to make adjustments to the code.
+
+  You have access to the full question, including formatting instructions and some test cases. You also have access to a natural language description of the correct solution. The coding assistant has access to a summarized, less detailed version of the problem, but only you have access to the full problem.
+
+  The coding assistant will ask you a question. Your goal is to provide a single sentence reply that you think would answer the assistant's question and help the assistant fix or adjust the code. The coding assistant will use this answer to help generate the next version of the code.
+
+# Prompt 
+user_iter_refinement_free_response_answer_query: |
+  Here is the description of the programming problem:
+
+  {full_question}
+  {solution_info}
+  Here is the code assistant's solution.
+  
+  ```python
+  {full_solution}
+  ```
+  Here is the coding assistant's question for you:
+
+  {asst_query}
+
+  Please provide a single sentence, concise response that would best help the coding assistant complete the rest of the code correctly. Remember, this can only be one sentence! Don't write more than 30 words, and don't copy the code. Just write your reply.
+  
+user_iter_refinement_free_response_answer_prefill: ""
+
+
+
+#-----------------------------------------------------#
+
+
+
+# Prompt containing question and information
+user_iter_refinement_nl_feedback_sys: |
+  You are an expert human programmer who is using a coding assistant to write code in order to solve some programming puzzles. The coding assistant has completed a potential solution to the problem, but needs your help to make adjustments to the code.
+
+  You have access to the full question, including formatting instructions and some test cases. You also have access to a natural language description of the correct solution. The coding assistant has access to a summarized, less detailed version of the problem, but only you have access to the full problem. This means that the code assistant may need additional information on how the code should work or how its output should be formatted.
+
+  Your goal is to provide feedback about the solution that you think would help the assistant fix or adjust the code. The coding assistant will use this feedback to help generate the next version of the code. Write one paragraph of feedback that you think would be most helpful to the coding assistant. Do not write more than 100 words.
+
+# Prompt 
+user_iter_refinement_nl_feedback_query: |
+  Here is the description of the programming problem:
+
+  {full_question}
+  {solution_info}
+  Here is the code assistant's solution.
+  
+  ```python
+  {full_solution}
+  ```
+
+  Please provide one paragraph of feedback that would best help the coding assistant write a better of the solution. Don't copy the code. Just write your reply.
+  
+user_iter_refinement_nl_feedback_prefill: ""

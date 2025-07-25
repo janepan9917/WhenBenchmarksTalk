@@ -1,0 +1,16 @@
+# Dataset params
+dataset: 
+  name: class_eval 
+  input_transformation_type: "func_summary"
+  solution_info_type: "vanilla"
+  split: "test"
+  shuffle: false
+
+# Oracle produces summaries
+oracle_model:
+  model_name: "claude-3.5-sonnet"
+  api_key: "CLAUDE_API_KEY"
+  prompt_fn: "prompts/oracle/func_summary.yaml"
+
+
+

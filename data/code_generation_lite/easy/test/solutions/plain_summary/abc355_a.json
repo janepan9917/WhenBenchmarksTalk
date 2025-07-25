@@ -1,0 +1,1 @@
+{"qid": "abc355_a", "split": "test", "solutions": "# YOUR CODE HERE\nA, B = map(int, input().split())\n\nsuspects = set([1, 2, 3])\n\nnot_culprits = set([A, B])\npotential_culprits = suspects - not_culprits\n\nif len(potential_culprits) == 1:\n    print(potential_culprits.pop())\nelse:\n    print(-1)", "starter": ""}

@@ -1,0 +1,28 @@
+
+# Interaction parameters
+interaction:
+  feedback_setting: iter_refinement
+  n_iter_refinement_steps: 5
+  # mid_generation_feedback_type: free_response_answer               # comment, code, free_response_answer
+  feedback_type: nl_feedback
+  n_samples: 4
+  stopping_condition: "never_stop" 
+
+# Dataset params
+dataset: 
+  input_transformation_type: "plain_summary"
+  solution_info_type: "full_solution"
+  shuffle: True
+
+# User model uses oracle summaries to give asst feedback
+user_model:
+  model_name: "claude-3.5-sonnet"
+  api_key: "CLAUDE_KEY"
+  prompt_fn: "prompts/user/ir_nl_feedback_sentence.yaml"
+  include_history: False
+
+# Asst model uses user answers to write code
+asst_model:
+  model_name: "codellama-34B-instruct"
+  prompt_fn: "prompts/asst/apps_ir_nl_feedback_no_history.yaml"
+  include_history: False

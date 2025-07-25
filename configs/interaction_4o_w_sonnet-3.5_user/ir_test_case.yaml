@@ -1,0 +1,19 @@
+# Interaction parameters
+interaction:
+  feedback_setting: iter_refinement
+  feedback_type: test_case
+  n_samples: 4
+  stopping_condition: "never_stop" 
+  n_iter_refinement_steps: 5
+
+# Dataset params
+dataset: 
+  input_transformation_type: "plain_summary"
+  solution_info_type: "full_solution"
+  shuffle: True
+
+# Asst model uses user answers to write code
+asst_model:
+  model_name: "gpt-4o"
+  api_key: "OPENAI_KEY"
+  prompt_fn: "prompts/asst/apps_ir_nl_feedback.yaml"

@@ -1,0 +1,101 @@
+plain_summary_sys: |
+  "Summarize the question with header 'FORMAL QUESTION' using only natural language. Write your summary under 'SUMARRY'
+  Do not use any variable or function names from the question. Do not write any code."
+
+plain_summary_prefix: ""
+
+plain_summary_query: |
+  "Here are examples of a question and a summary labeled 'EX QUESTION' and 'EX SUMMARY'. 
+  Format your summary of 'FORMAL QUESTION' in a similar way to these summaries using {sent_len} sentence(s).
+
+  ###EX QUESTION
+  Two fishing vessels are sailing the open ocean, both on a joint ops fishing mission. On a high stakes, high reward expedition - the ships have adopted the strategy of hanging a net between the two ships. The net is **40 miles long**. Once the straight-line distance between the ships is greater than 40 miles, the net will tear, and their valuable sea harvest will be lost! We need to know how long it will take for this to happen. Given the bearing of each ship, find the time **in minutes** at which the straight-line distance between the two ships reaches **40 miles**. Both ships travel at **90 miles per hour**. At time 0, assume the ships have the same location. Bearings are defined as **degrees from north, counting clockwise**. These will be passed to your function as integers between **0 and 359** degrees. Round your result to **2 decimal places**. If the net never breaks, return float('inf') Happy sailing!
+  ###EX SUMMARY
+  90mph, inputs: pair of degrees, output: minutes to 40mi distance
+
+  ###EX QUESTION
+  Chefina has two sequences $A_1, A_2, \ldots, A_N$ and $B_1, B_2, \ldots, B_N$. She views two sequences with length $N$ as identical if, after they are sorted in non-decreasing order, the $i$-th element of one sequence is equal to the $i$-th element of the other sequence for each $i$ ($1 \le i \le N$). To impress Chefina, Chef wants to make the sequences identical. He may perform the following operation zero or more times: choose two integers $i$ and $j$ $(1 \le i,j \le N)$ and swap $A_i$ with $B_j$. The cost of each such operation is min(A_i, B_j)$. You have to find the minimum total cost with which Chef can make the two sequences identical. -----Input----- - The first line of the input contains a single integer $T$ denoting the number of test cases. The description of $T$ test cases follows. - The first line of each test case contains a single integer $N$. - The second line contains $N$ space-separated integers $A_1, A_2, \ldots, A_N$. - The third line contains $N$ space-separated integers $B_1, B_2, \ldots, B_N$. -----Output----- For each test case, print a single line containing one integer ― the minimum cost, or $-1$ if no valid sequence of operations exists. -----Constraints----- - $1 \le T \le 2,000$ - $1 \le N \le 2 \cdot 10^5$ - $1 \le A_i, B_i \le 10^9$ for each valid $i$ - the sum of $N$ over all test cases does not exceed $2 \cdot 10^6$ -----Subtasks----- Subtask #1 (15 points): - $T \le 20$ - $N \le 20$ Subtask #2 (85 points): original constraints -----Example Input----- 3 1 1 2 2 1 2 2 1 2 1 1 2 2 -----Example Output----- -1 0 1 -----Explanation----- Example case 1: There is no way to make the sequences identical, so the answer is $-1$. Example case 2: The sequence are identical initially, so the answer is $0$. Example case 3: We can swap $A_1$ with $B_2$, which makes the two sequences identical, so the answer is $1$.
+  ###EX SUMMARY
+  Calculate minimal cost to ensure two multi-sets are identical after swapping k times.
+
+  ###EX QUESTION
+  Chef loves to play with iron (Fe) and magnets (Ma). He took a row of $N$ cells (numbered $1$ through $N$) and placed some objects in some of these cells. You are given a string $S$ with length $N$ describing them; for each valid $i$, the $i$-th character of $S$ is one of the following: - 'I' if the $i$-th cell contains a piece of iron - 'M' if the $i$-th cell contains a magnet - '_' if the $i$-th cell is empty - ':' if the $i$-th cell contains a conducting sheet - 'X' if the $i$-th cell is blocked 
+  If there is a magnet in a cell $i$ and iron in a cell $j$, the attraction power between these cells is $P_(i,j) = K+1 - |j-i| - S_(i,j)$, where $S_(i,j)$ is the number of cells containing sheets between cells $i$ and $j$. This magnet can only attract this iron if $P_(i, j) > 0$ and there are no blocked cells between the cells $i$ and $j$. 
+  Chef wants to choose some magnets (possibly none) and to each of these magnets, assign a piece of iron which this magnet should attract. Each piece of iron may only be attracted by at most one magnet and only if the attraction power between them is positive and there are no blocked cells between them. 
+  Find the maximum number of magnets Chef can choose. 
+  ###EX SUMMARY
+  Two-pointer technique: scan the string for ‘M ‘I’ pairs. Interaction strength calculated by distance and the number of colons between 'M' and 'I'. Handle barriers ('X') and modifiers (':'). The code outputs the number of successful interactions between 'M' and 'I' for each test case.
+
+  ###EX QUESTION
+  Chef is the event manager of his college. He has been assigned the task to manage the upcoming tech fest. There are $K$ rooms where the event can take place, and at a particular time only one event can be organized in a room for a particular time interval. Each event coordinator has their strictly preferred room $P_i$, and if the room is already occupied he simply cancels that event.Chef wants to maximize the total number of events,and so he allows or disallows certain events in order to achieve the task . Chef is busy handling his events so the chef needs your help . Given a list of $N$ events with their start time $S_i$,end time $E_i$ and preferred room $P_i$,you need to calculate the maximum number of events that can take place. Note that the $i$th event wants to occupy the $p_i$ room from [$s_i$, $f_i$) . 
+  ###EX SUMMARY
+  Output the total count of non-overlapping intervals across all rooms for each test case
+ 
+  ###EX QUESTION
+  In the official contest this problem has a different statement, for which jury's solution was working incorrectly, and for this reason it was excluded from the contest. This mistake have been fixed and the current given problem statement and model solution corresponds to what jury wanted it to be during the contest. Vova and Lesha are friends. They often meet at Vova's place and compete against each other in a computer game named The Ancient Papyri: Swordsink. Vova always chooses a warrior as his fighter and Leshac chooses an archer. After that they should choose initial positions for their characters and start the fight. A warrior is good at melee combat, so Vova will try to make the distance between fighters as small as possible. An archer prefers to keep the enemy at a distance, so Lesha will try to make the initial distance as large as possible. 
+  There are n (n is always even) possible starting positions for characters marked along the Ox axis. The positions are given by their distinct coordinates x_1, x_2, ..., x_n, two characters cannot end up at the same position. 
+  Vova and Lesha take turns banning available positions, Vova moves first. During each turn one of the guys bans exactly one of the remaining positions. Banned positions cannot be used by both Vova and Lesha. 
+  They continue to make moves until there are only two possible positions remaining (thus, the total number of moves will be n - 2). 
+  After that Vova's character takes the position with the lesser coordinate and Lesha's character takes the position with the bigger coordinate and the guys start fighting. Vova and Lesha are already tired by the game of choosing positions, as they need to play it before every fight, so they asked you (the developer of the The Ancient Papyri: Swordsink) to write a module that would automatically determine the distance at which the warrior and the archer will start fighting if both Vova and Lesha play optimally. 
+  ###EX SUMMARY
+  Alternating deletion from list to minimize vs maximize difference for final remaining pair of inputs
+
+  ###EX QUESTION
+  There are $N$ villages numbered $1$ to $N$. The villages are connected through bi-directional paths in between them. The whole network is in the form of a tree.
+  Each village has only $1$ fighter but they help each other in times of crisis by sending their fighter to the village in danger through paths along the villages. Defeating a fighter will mean conquering his village. In particular, If village $X$ is under attack, all villages having a path to $X$ will send their fighters for help.
+  Naruto wants to conquer all the villages. But he cannot take on so many fighters at the same time so he plans to use  a secret technique with which he can destroy  any $1$ village (along with paths connected to it) in the blink of an eye.  However, it can be used only once. He realized that if he destroys any village, say $X$, the maximum number of fighters he has to fight at once reduces to $W$. He wants $W$ to be as small as possible. Help him find the optimal $X$.
+  In case of multiple answers, choose the smallest value of $X$.
+  ###EX SUMMARY
+  Given edges to unweighted bidirectional graph, find the node with largest subtree/number of neighbors
+  
+  ###EX QUESTION
+  You are given an array $a$, consisting of $n$ integers.
+  Each position $i$ ($1 \le i \le n$) of the array is either locked or unlocked. You can take the values on the unlocked positions, rearrange them in any order and place them back into the unlocked positions. You are not allowed to remove any values, add the new ones or rearrange the values on the locked positions. You are allowed to leave the values in the same order as they were.
+  For example, let $a = [-1, 1, \underline(3), 2, \underline(-2), 1, -4, \underline(0)]$, the underlined positions are locked. You can obtain the following arrays:   $[-1, 1, \underline(3), 2, \underline(-2), 1, -4, \underline(0)]$;  $[-4, -1, \underline(3), 2, \underline(-2), 1, 1, \underline(0)]$;  $[1, -1, \underline(3), 2, \underline(-2), 1, -4, \underline(0)]$;  $[1, 2, \underline(3), -1, \underline(-2), -4, 1, \underline(0)]$;  and some others.
+  Let $p$ be a sequence of prefix sums of the array $a$ after the rearrangement. So $p_1 = a_1$, $p_2 = a_1 + a_2$, $p_3 = a_1 + a_2 + a_3$, $\dots$, $p_n = a_1 + a_2 + \dots + a_n$.
+  Let $k$ be the maximum $j$ ($1 \le j \le n$) such that $p_j < 0$. If there are no $j$ such that $p_j < 0$, then $k = 0$.
+  Your goal is to rearrange the values in such a way that $k$ is minimum possible.
+  Output the array $a$ after the rearrangement such that the value $k$ for it is minimum possible. If there are multiple answers then print any of them.
+  ###EX SUMMARY
+  Rearrange an array to minimize the index of the largest non-negative prefix sum. Only rearrange unlocked indexes.
+  
+  ###EX QUESTION
+  Serge came to the school dining room and discovered that there is a big queue here. There are $m$ pupils in the queue. He's not sure now if he wants to wait until the queue will clear, so he wants to know which dish he will receive if he does. As Serge is very tired, he asks you to compute it instead of him.
+  Initially there are $n$ dishes with costs $a_1, a_2, \ldots, a_n$. As you already know, there are the queue of $m$ pupils who have $b_1, \ldots, b_m$ togrogs respectively (pupils are enumerated by queue order, i.e the first pupil in the queue has $b_1$ togrogs and the last one has $b_m$ togrogs)
+  Pupils think that the most expensive dish is the most delicious one, so every pupil just buys the most expensive dish for which he has money (every dish has a single copy, so when a pupil has bought it nobody can buy it later), and if a pupil doesn't have money for any dish, he just leaves the queue (so brutal capitalism...)
+  But money isn't a problem at all for Serge, so Serge is buying the most expensive dish if there is at least one remaining.
+  Moreover, Serge's school has a very unstable economic situation and the costs of some dishes or number of togrogs of some pupils can change. More formally, you must process $q$ queries:
+  change $a_i$ to $x$. It means that the price of the $i$-th dish becomes $x$ togrogs.  change $b_i$ to $x$. It means that the $i$-th pupil in the queue has $x$ togrogs now.
+  Nobody leaves the queue during those queries because a saleswoman is late.
+  After every query, you must tell Serge price of the dish which he will buy if he has waited until the queue is clear, or $-1$ if there are no dishes at this point, according to rules described above.
+  ###EX SUMMARY
+  There is only one of each item and a line of students to purchase the items. Students always purchase the most expensive item they can afford. Find the most expensive leftover item after each perturbation of price and/or budget.
+
+  ###EX QUESTION
+  Vasily has a deck of cards consisting of n cards. There is an integer on each of the cards, this integer is between 1 and 100 000, inclusive. It is possible that some cards have the same integers on them.
+  Vasily decided to sort the cards. To do this, he repeatedly takes the top card from the deck, and if the number on it equals the minimum number written on the cards in the deck, then he places the card away. Otherwise, he puts it under the deck and takes the next card from the top, and so on. The process ends as soon as there are no cards in the deck. You can assume that Vasily always knows the minimum number written on some card in the remaining deck, but doesn't know where this card (or these cards) is.
+  You are to determine the total number of times Vasily takes the top card from the deck
+  ###EX SUMMARY
+  Find the number of iterations to sort with our sorting algorithm. Each iteration, peak at the topmost card and either pop/remove the card or place it at the end of the deck.
+
+  ###EX QUESTION
+  Suppose there is a circle. There are N Juice shops on that circle. Juice shops are numbered 0 to N-1 (both inclusive). You have two pieces of information corresponding to each of the juice shop:
+  (1) the amount of Juice that a particular Juice shop can provide and
+  (2) the distance from that juice shop to the next juice shop.
+  Initially, there is a man with a bottle of infinite capacity carrying no juice. He can start the tour at any of the juice shops. Calculate the first point from where the man will be able to complete the circle. Consider that the man will stop at every Juice Shop. The man will move one kilometer for each litre of the juice.
+  ###EX SUMMARY
+  Input: Circular weighted directed graph. Node val represents energy/fuel. Output: smallest index node that allows traversal of entire graph.
+  
+  ###EX QUESTION
+  Given an array with n integers, your task is to check if it could become non-decreasing by modifying at most 1 element.We define an array is non-decreasing if array[i]  holds for every i
+  ###EX SUMMARY
+  Change one thing to make array nondecreasing
+
+  ###FORMAL QUESTION
+  {question}
+  ###SUMMARY
+  <YOUR SUMMARY HERE>
+  "
+
+plain_summary_prefill: ""
+

@@ -1,0 +1,1 @@
+{"qid": "abc352_a", "split": "test", "solutions": "# YOUR CODE HERE\nn, x, y, z = map(int, input().split())\n\nif x < y:\n    # Inbound train\n    if z > x and z <= y:\n        print(\"Yes\")\n    else:\n        print(\"No\")\nelse:\n    # Outbound train\n    if z < x and z >= y:\n        print(\"Yes\")\n    else:\n        print(\"No\")", "starter": ""}

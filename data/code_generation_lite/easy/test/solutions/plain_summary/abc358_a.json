@@ -1,0 +1,1 @@
+{"qid": "abc358_a", "split": "test", "solutions": "# YOUR CODE HERE\ns, t = input().split()\n\nif s == \"AtCoder\" and t == \"Land\":\n    print(\"Yes\")\nelse:\n    print(\"No\")", "starter": ""}

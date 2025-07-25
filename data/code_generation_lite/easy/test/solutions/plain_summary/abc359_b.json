@@ -1,0 +1,1 @@
+{"qid": "abc359_b", "split": "test", "solutions": "# YOUR CODE HERE\n\nN = int(input())\ncolors = list(map(int, input().split()))\n\ncount = 0\nfor i in range(1, N + 1):\n    indices = [j for j, x in enumerate(colors) if x == i]\n    if len(indices) == 2 and abs(indices[0] - indices[1]) == 2:\n        count += 1\n\nprint(count)", "starter": ""}

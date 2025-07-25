@@ -1,0 +1,1 @@
+{"qid": "3429", "split": "test", "solutions": "class Solution:\n    def isArraySpecial(self, nums: List[int]) -> bool:\n        for i in range(len(nums)-1):\n            if (nums[i] % 2 + nums[i+1] % 2) % 2 == 0:\n                return False\n        return True", "starter": "class Solution:\n    def isArraySpecial(self, nums: List[int]) -> bool:\n        "}

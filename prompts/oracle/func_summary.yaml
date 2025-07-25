@@ -1,0 +1,16 @@
+func_summary_sys: |
+  "Do not reference any variables or function names. Do not write any code or examples of behavior."
+
+func_summary_query: |
+  "You are given a method signature and a docstring below. Write a short, one sentence summary of the docstring. Do not use code or examples in your summary. Retain only the key information. Do not use more than 15 words.
+
+  ## SIGNATURE and DOCSTRING
+  {function}
+
+  ### SUMMARY
+  <YOUR SUMMARY HERE>
+  "
+
+func_summary_prefill: ""
+
+

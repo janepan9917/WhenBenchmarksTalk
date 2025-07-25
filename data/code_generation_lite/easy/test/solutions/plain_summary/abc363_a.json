@@ -1,0 +1,1 @@
+{"qid": "abc363_a", "split": "test", "solutions": "# YOUR CODE HERE\n\nr = int(input())\n\nif r <= 99:\n    print(100 - r)\nelif r <= 199:\n    print(200 - r)\nelse:\n    print(300 - r)", "starter": ""}

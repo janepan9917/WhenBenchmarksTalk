@@ -1,0 +1,35 @@
+
+# Interaction parameters
+interaction:
+  n_samples: 4
+  stopping_condition: "never_stop" 
+  feedback_type: nl_feedback
+  n_iter_refinement_steps: 5
+
+# Dataset params
+dataset: 
+  input_transformation_type: "func_summary"
+  solution_info_type: "full_solution"
+  shuffle: True
+
+# User model uses oracle summaries to give asst feedback
+user_model:
+  include_history: False
+  model_name: "claude-3.5-sonnet"
+  api_key: "CLAUDE_API_KEY"
+  prompt_fn: "prompts/user/self_critique_ir_nl_feedback.yaml"
+
+# Asst model uses user answers to write code
+asst_model:
+  include_history: False
+  model_name: "meta-llama/Meta-Llama-3.1-8B-Instruct"
+  api_key: "HUGGINGFACE_API_KEY"
+  prompt_fn: "prompts/asst/classeval_ir_nl_feedback.yaml"
+  n_samples: 2
+  cache_dir: '/data/user_data/rshar/hf'
+  generation_config:
+    do_sample: True
+    temperature: 0.9
+  stopping_condition:
+    n_lines: 50
+    n_tokens: 1000

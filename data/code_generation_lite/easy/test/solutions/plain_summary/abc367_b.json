@@ -1,0 +1,1 @@
+{"qid": "abc367_b", "split": "test", "solutions": "# YOUR CODE HERE\nx = float(input())\nif x == int(x):\n    print(int(x))\nelse:\n    print(f\"{x:.3f}\".rstrip('0').rstrip('.'))", "starter": ""}

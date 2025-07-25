@@ -1,0 +1,1 @@
+{"qid": "abc361_a", "split": "test", "solutions": "# YOUR CODE HERE\n\nN, K, X = map(int, input().split())\nA = list(map(int, input().split()))\n\nB = A[:K] + [X] + A[K:]\n\nprint(*B)", "starter": ""}

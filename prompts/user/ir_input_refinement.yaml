@@ -1,0 +1,36 @@
+feedback_type: iter_refinement
+feedback_setting: nl_feedback
+
+# System prompt for user
+user_sys: |
+  You are an expert human programmer who is using a coding assistant to write code in order to solve some programming puzzles. The coding assistant has completed a potential solution to the problem, but needs your help to make adjustments to the code.
+
+  You have access to the full question, including formatting instructions and some test cases. You also have access to a natural language description of the correct solution. The coding assistant has access to a summarized, less detailed version of the problem, but only you have access to the full problem. This means that the code assistant may need additional information on how the code should work or how its output should be formatted.
+
+  Here is the description of the programming problem:
+
+  {full_question}
+
+  Here is a description of the correct solution:
+
+  {solution_info}
+
+  Your goal is to rephrase the input to the question so as to help the model generate a better version of the code. Do not just copy the full question written above; your output should be roughly similar in length to the previous version of the question.
+
+user_class_eval_sys_suffix: Do not refer to the solution code in any way; do not mention anything from the solution docstrings that are not present in the summarized version of the problem.
+
+# Prompt for user
+user_query: |
+
+  Here is the code assistant's solution.
+  
+  ```python
+  {full_solution}
+  ```
+  Here is the previous version of the question.
+  {underspec_question}
+  
+  Please rewrite the question so as to provide an updated question of similar length which would help the model generate a better version of the code. Make sure you don't make the new question longer than the older version! Begin your response with "Question:" and don't add any extra text to the end.
+
+
+user_prefill: ""

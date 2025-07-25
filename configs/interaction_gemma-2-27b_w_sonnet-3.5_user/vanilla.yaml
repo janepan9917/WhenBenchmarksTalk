@@ -1,0 +1,16 @@
+
+# Interaction parameters
+interaction:
+  n_samples: 4
+  stopping_condition: "never_stop" 
+
+# Dataset params
+dataset: 
+  input_transformation_type: "vanilla"
+  solution_info_type: "full_solution"
+  shuffle: True
+
+# Asst model uses user answers to write code
+asst_model:
+  model_name: "gemma-2-27B"
+  prompt_fn: "prompts/asst/apps_baseline.yaml"

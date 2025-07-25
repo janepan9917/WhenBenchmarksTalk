@@ -1,0 +1,11 @@
+{
+    "qid": qid
+    "orig_input": orig_input
+    "input": underspecified input
+    "test_cases": [test cases]
+    "solutions": [list of solutions"],
+    "task": "apps",
+    "difficulty": "interview",
+    "split": "test",
+    "transformation_type": "vanilla",
+}

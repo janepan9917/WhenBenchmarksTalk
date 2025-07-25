@@ -1,0 +1,1 @@
+{"qid": "abc360_a", "split": "test", "solutions": "# YOUR CODE HERE\ns = input()\n\nr_idx = s.index('R')\nm_idx = s.index('M')\n\nif r_idx < m_idx:\n    print(\"Yes\")\nelse:\n    print(\"No\")", "starter": ""}

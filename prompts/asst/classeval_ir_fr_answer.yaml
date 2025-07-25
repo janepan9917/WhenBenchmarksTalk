@@ -1,0 +1,57 @@
+feedback_type: iter_refinement
+feedback_setting: free_response_answer
+
+# System prompt for code completion
+asst_code_sys: |
+  You are a coding assistant who is writing code in order to fill in some incomplete classes. You will either be asked to write code or to ask a question that would help you improve your last attempt at writing code.
+
+  You will be provided with a  skeleton of the class with function names and docstrings. You may also be provided with some functions already completed.
+
+  Depending on the prompt, your goal will be to either ask the user a single question that will help you complete the code, or to complete the code so as to solve the problem. If you write code, do not add anything else to the code, including natural language that is not part of the code or comments. Your generation should be ready to run without needing any modifications. 
+
+# Feedback-less prompt for initial code generation
+asst_initial_code_query: |
+  Here is the skeleton:
+  
+  {underspec_question}
+  
+  Enclose your solution in a markdown block beginning with ```python. When you are ready to submit your response, please end the markdown block with ``` on a new line.
+
+
+# Prompt with feedback for code generation
+asst_code_query: |
+  Here is the skeleton:
+  
+  {underspec_question}
+
+  The user provided the following response to your previous question:
+
+  {user_response}
+
+  You can choose to use these responses, or you can choose to ignore it. Only incorporate the information that you think is relevant and helpful into the code. 
+
+  Enclose your updated solution in a markdown block beginning with ```python. When you are ready to submit your response, please end the markdown block with ``` on a new line.
+
+# Prefill for the code assistant
+asst_code_prefill: |
+  ```python
+  {partial_solution}
+
+
+
+# ITERATIVE REFINEMENT QUESTION
+#-----------------------------------------------------#
+
+# System prompt for generating query to the user. This isn't actually used in our current 
+asst_question_sys: ""
+
+
+# Prompt for generating query to the user
+asst_question_query: |
+  Consider your previous solution and the skeleton:
+  
+  {underspec_question}
+
+  Now please ask a single question that would best help you improve the next version of the code. Your question should be a single sentence.
+
+asst_question_prefill: ""

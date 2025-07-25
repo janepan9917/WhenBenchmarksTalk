@@ -1,0 +1,1 @@
+{"qid": "abc356_a", "split": "test", "solutions": "# YOUR CODE HERE\n\nN, L, R = map(int, input().split())\nA = list(range(1, N+1))\nA[L-1:R] = reversed(A[L-1:R])\nprint(*A)", "starter": ""}

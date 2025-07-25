@@ -1,0 +1,1 @@
+{"qid": "abc365_b", "split": "test", "solutions": "# YOUR CODE HERE\nN = int(input())\nA = list(map(int, input().split()))\n\nlargest = max(A)\nsecond_largest = min(A)\n\nfor num in A:\n    if num > second_largest and num < largest:\n        second_largest = num\n\nprint(A.index(second_largest) + 1)", "starter": ""}

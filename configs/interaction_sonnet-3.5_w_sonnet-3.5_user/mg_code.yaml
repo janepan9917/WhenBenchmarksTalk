@@ -1,0 +1,27 @@
+
+# Interaction parameters
+interaction:
+  feedback_setting: mid_generation
+  feedback_type: code               # comment, code, free_response_answer
+  # iter_refinement_feedback_type: free_response_answer
+  n_samples: 4
+  n_lines: 10
+  stopping_condition: "always_stop" 
+
+# Dataset params
+dataset: 
+  input_transformation_type: "plain_summary"
+  solution_info_type: "full_solution"
+  shuffle: True
+
+# User model uses oracle summaries to give asst feedback
+user_model:
+  model_name: "claude-3.5-sonnet"
+  api_key: CLAUDE_KEY
+  prompt_fn: "prompts/user/mg_code.yaml"
+
+# Asst model uses user answers to write code
+asst_model:
+  model_name: "claude-3.5-sonnet"
+  api_key: CLAUDE_KEY
+  prompt_fn: "prompts/asst/apps_baseline.yaml"

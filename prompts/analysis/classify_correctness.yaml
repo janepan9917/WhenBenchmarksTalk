@@ -1,0 +1,66 @@
+# System prompt for code completion
+sys_prompt: | 
+  I am a programmer who is trying to complete programming puzzles. Someone has given me feedback on my programming puzzles. I would like you to determine whether the feedback falls into one of these five categories:
+
+  CORRECT: The feedback says that my code is correct and does not need any changes.
+  CORRECT BUT SUBOPTIMAL: The feedback says that my code is correct but needs optimization changes (e.g. is inefficient or does not use the best algorithm). Make sure that the feedback does not mention any bugs, missing edge cases, or incorrect input/output formatting! This class should only be used if the feedback is about optimization or efficiency.
+  PARTIALLY INCORRECT: The feedback says that the logic of my solution is mostly correct, but that there are one or two minor bugs/mistakes that need to be fixed. This could include missing edge cases, incorrect input/output formatting, or other minor issues. The feedback should not say that the code is completely incorrect or that there are major issues.
+  INCORRECT: The feedback says that my code is incorrect and there are major issues that need to be fixed.
+  NONE OF THE ABOVE: The feedback does not fall into any of the above categories.
+
+  Please classify the feedback into one of these five categories. Write your answer after the "Class: " label. Don't add additional explanations; just give the class label.
+  
+  Here are some examples of feedback and their corresponding classes:
+
+  Feedback: The solution should first read the number of elements n as a separate input before reading the array, and it should print the result directly without storing it in a variable.
+  Class: INCORRECT
+
+  Feedback: The solution is on the right track, but there are a few key adjustments needed. First, the input should be read as a single line of space-separated integers, not as separate inputs. Second, the rereading of pages should only start from the second day onwards, not on the first day. Third, the pages_read calculation needs to ensure it doesn't go negative when subtracting reread_pages. Lastly, the current implementation might undercount the total pages read if the last day's reading goes beyond the book length. Consider adjusting the logic to stop exactly when the book is finished, not after.
+  Class: PARTIALLY INCORRECT
+
+  Feedback: Question: Check if an array is unimodal: strictly increasing (optional), then constant (optional), then strictly decreasing (optional). Input: first line contains array size n (1 ≤ n ≤ 100), second line contains n integers (1 ≤ a_i ≤ 1000). Output "YES" if unimodal, "NO" otherwise. Case-insensitive output allowed.
+  Class: NONE OF THE ABOVE
+
+  Feedback: The current solution is on the right track, but it's more complex than necessary. Instead of iterating through digits, we can simplify by directly incrementing the first non-zero digit and setting all subsequent digits to zero. This approach aligns more closely with the optimal solution described. Also, consider handling edge cases where the current year is already a lucky year. Remember, the goal is to find the next lucky year with at most one non-zero digit, not just the next year with a different first digit. Simplifying the logic will make the code more efficient and easier to understand.
+  Class: PARTIALLY INCORRECT
+
+  Feedback: The current solution uses a backtracking approach which may be too slow for large inputs (up to n=200,000), so consider implementing a more efficient algorithm that can handle the maximum input size within the time constraints.'
+  Class: CORRECT BUT SUBOPTIMAL
+
+  Feedback: The main issue is with the interpretation of swap permissions. The line:
+
+  python
+  if (arr[i], arr[i + 1]) in swap_permissions:
+
+
+  should be replaced with:
+
+  python
+  if swap_permissions[i] == '1':
+
+
+  This is because the swap permissions are given as a string of '0's and '1's, where '1' means swapping is allowed at that position. The current implementation incorrectly assumes swap_permissions is a set of tuple pairs. Also, the function should read input and output 'YES' or 'NO' directly, rather than returning a boolean.
+  Class: INCORRECT
+
+  Feedback: The code provided by the assistant is actually correct and should solve the problem as described. There are no specific lines that need to be changed or corrected. The solution implements the algorithm efficiently, checking divisors of the difference between a and b, and finding the minimum LCM. It also correctly handles the case where there are multiple k values that give the same minimum LCM by keeping track of the smallest k. The input and output are also handled correctly according to the problem description.
+  Class: CORRECT
+
+  Feedback: The current solution is inefficient for large inputs and doesn't handle the case where the accordion might be a substring of the input; instead, consider finding the leftmost '[' and ':' pair, then the rightmost ']' and ':' pair, and count the '|' characters in between.
+  Class: INCORRECT
+
+  Feedback: The solution is generally correct and efficient, using topological sorting to handle course dependencies. However, it could be improved by addressing a few minor issues. First, the handling of the case with no required courses should be removed, as the problem states there are always k main courses. Second, the code could be more space-efficient by avoiding the creation of the full topological order and instead only tracking required courses. Lastly, the output formatting could be adjusted to match the example outputs more closely, with the course numbers on a single line separated by spaces. These changes would make the solution more aligned with the problem specifications and potentially more efficient.
+  Class: PARTIALLY INCORRECT
+
+  Feedback: The solution is correct but inefficient for large n; consider using a more optimized approach that directly calculates the pairs ending with the maximum number of nines without iterating through all possible sums.
+  Class: CORRECT BUT SUBOPTIMAL
+
+  Feedback: The current solution is on the right track, but it can be optimized. Instead of checking all divisors, focus on finding the maximum possible divisor that satisfies the conditions. Start with the largest divisor and work your way down. This approach will be more efficient, especially for large inputs. Also, consider using a single loop to generate the sequence once the maximum divisor is found, rather than storing intermediate sequences. Finally, ensure that the output format matches the problem description exactly, especially when printing multiple numbers on a single line.
+  Class: PARTIALLY INCORRECT
+
+
+query_prompt: |
+  Now, please classify the following feedback:
+  
+  Feedback: {}
+  Class:
+

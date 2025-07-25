@@ -1,0 +1,1 @@
+{"qid": "abc349_a", "split": "test", "solutions": "# YOUR CODE HERE\n\nN = int(input())\nscores = list(map(int, input().split()))\n\ntotal_sum = sum(scores)\nscore_N = -total_sum\n\nprint(score_N)", "starter": ""}

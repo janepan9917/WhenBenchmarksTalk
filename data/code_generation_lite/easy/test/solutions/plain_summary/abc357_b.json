@@ -1,0 +1,1 @@
+{"qid": "abc357_b", "split": "test", "solutions": "# YOUR CODE HERE\nS = input()\nlowercase_count = sum(1 for c in S if c.islower())\nuppercase_count = sum(1 for c in S if c.isupper())\n\nif uppercase_count > lowercase_count:\n    print(S.upper())\nelse:\n    print(S.lower())", "starter": ""}
