@@ -1,6 +1,23 @@
-# 🤖 Code Uncertainty Experiment
+# 🤖 When Benchmarks Talk
 
-> *Exploring how AI models handle uncertainty in multi-turn code generation interactions*
+This is the official code release for the Findings of ACL 2025 paper "When Benchmarks Talk: Re-Evaluating Code LLMs with Interactive Feedback" (https://arxiv.org/abs/2502.18413).
+
+You can find our collected data here: https://huggingface.co/datasets/janepan9917/when-benchmarks-talk
+
+Details about how to use this codebase are below.
+
+If you use this codebase or data, we'd appreciate it if you cite our work!
+
+```bibtex
+@misc{pan2025benchmarkstalkreevaluatingcode,
+      title={When Benchmarks Talk: Re-Evaluating Code LLMs with Interactive Feedback}, 
+      author={Jane Pan and Ryan Shar and Jacob Pfau and Ameet Talwalkar and He He and Valerie Chen},
+      year={2025},
+      eprint={2502.18413},
+      archivePrefix={arXiv},
+      primaryClass={cs.HC},
+      url={https://arxiv.org/abs/2502.18413}, 
+}
 
 
 ## 🎯 The Big Picture
